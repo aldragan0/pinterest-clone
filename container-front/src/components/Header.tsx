@@ -1,7 +1,11 @@
 import '../styles/Header.css';
 
-export const Header = () => {
+import { Link } from 'react-router-dom';
 
+export const Header = (props: {
+  loginRoute: string,
+  signupRoute: string
+}) => {
   return (
     <header className="navigator">
       <ul className='links'>
@@ -10,9 +14,13 @@ export const Header = () => {
         <li><a href="#">Blog</a></li>
       </ul>
       <ul>
-        <li className='button-primary'><a href="#">Log in</a></li>
-        <li className='button-secondary'><a href="#">Sign Up</a></li>
+        <li className='button-primary'>
+          <Link to={props.loginRoute}>Log in</Link>
+        </li>
+        <li className='button-secondary'>
+          <Link to={props.signupRoute}>Sign Up</Link>
+        </li>
       </ul>
-    </header>
+    </header >
   );
 }

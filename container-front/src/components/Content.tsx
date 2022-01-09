@@ -1,6 +1,6 @@
-import '../styles/Landing.css';
+import '../styles/Content.css';
 
-export const Landing = () => {
+export const Content = () => {
   return (
     <main>
       <div className='title'>
