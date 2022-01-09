@@ -1,0 +1,42 @@
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.title h1 {
+  width: 50vw;
+  min-width: 500px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+}
+
+.emphasis {
+  color: crimson;
+  font-weight: bolder;
+}
+
+#background {
+  position: relative;
+}
+
+#background::before {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    0deg,
+  rgba(255, 255, 255, 0) 70%, 
+  rgb(255, 255, 255) 100%);
+}
+
+#background img {
+  width: 100%;
+}

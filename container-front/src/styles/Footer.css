@@ -1,0 +1,38 @@
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+li {
+  text-decoration: none;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer ul {
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+footer a {
+  color: black;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
