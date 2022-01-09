@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ProgressPlugin } from "webpack";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { ErrorBar } from "./ErrorBar";
 
-export function Login() {
+export function Login(props: { signupRoute: string }) {
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const [_, setToken] = useLocalStorage('token', '');
@@ -47,7 +48,9 @@ export function Login() {
       </form>
       {error && <ErrorBar message={error} closeMessage={() => setError('')} />}
       <div>
-        <a className="ref" href="/signup">Create an account instead?</a>
+        <Link className="ref" to={props.signupRoute}>
+          Create an account instead?
+        </Link>
       </div>
     </div>
   );

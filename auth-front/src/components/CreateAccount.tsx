@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ErrorBar } from "./ErrorBar";
 
-export function CreateAccount() {
+export function CreateAccount(props: { loginRoute: string }) {
   let navigation = useNavigate();
   const [error, setError] = useState('');
 
@@ -49,7 +49,9 @@ export function CreateAccount() {
       </form>
       {error && <ErrorBar message={error} closeMessage={() => setError('')} />}
       <div>
-        <a className="ref" href="/login">Go back to login?</a>
+        <Link className="ref" to={props.loginRoute}>
+          Go back to login?
+        </Link>
       </div>
     </div>
   );
