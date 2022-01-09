@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ProgressPlugin } from "webpack";
+import '../styles/Login.css';
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { ErrorBar } from "./ErrorBar";
 

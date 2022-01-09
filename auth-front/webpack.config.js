@@ -37,7 +37,8 @@ module.exports = {
       filename: 'remoteEntry.js',
       exposes: {
         // expose each component
-        './Auth': './src/components/Auth',
+        './Login': './src/components/Login',
+        './Signup': './src/components/CreateAccount',
       },
       shared: {
         ...deps,

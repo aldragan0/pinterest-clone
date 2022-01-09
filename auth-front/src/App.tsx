@@ -1,9 +1,16 @@
 import React from "react";
-import Auth from "./components/Auth";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CreateAccount } from "./components/CreateAccount";
+import { Login } from "./components/Login";
 
 function App() {
   return (
-    <Auth />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login signupRoute="/signup" />} />
+        <Route path="/signup" element={<CreateAccount loginRoute="/login" />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

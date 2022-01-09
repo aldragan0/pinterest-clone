@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ErrorBar } from "./ErrorBar";
+import '../styles/CreateAccount.css';
 
 export function CreateAccount(props: { loginRoute: string }) {
   let navigation = useNavigate();
