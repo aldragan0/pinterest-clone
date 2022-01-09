@@ -35,7 +35,7 @@ export const InfiniteTable = () => {
 
   useEffect(() => {
     loadData();
-  })
+  }, []);
 
   return (
     <div style={{
@@ -46,7 +46,7 @@ export const InfiniteTable = () => {
       {
         data.flatMap(page =>
           page.photos.map(photo =>
-            <Pin imageSrc={photo.src.large} />
+            <Pin key={photo.id} imageSrc={photo.src.large} backgroundColor={photo.avg_color} />
           ))
       }
     </div >
