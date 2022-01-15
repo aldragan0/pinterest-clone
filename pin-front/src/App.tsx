@@ -1,10 +1,8 @@
-import React from 'react';
-import { InfiniteTable } from './components/InfiniteTable';
+import React from "react";
+import Table from "./components/Table";
 
 function App() {
-  return (
-    <InfiniteTable />
-  );
+  return <Table />;
 }
 
 export default App;
