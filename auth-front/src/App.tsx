@@ -7,7 +7,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login signupRoute="/signup" />} />
+        <Route
+          path="/login"
+          element={<Login signupRoute="/signup" homeRoute="/" />}
+        />
         <Route path="/signup" element={<CreateAccount loginRoute="/login" />} />
       </Routes>
     </BrowserRouter>

@@ -9,6 +9,7 @@ const Login = React.lazy(() => import("auth/Login"));
 //@ts-ignore
 const Signup = React.lazy(() => import("auth/Signup"));
 
+const homeRoute = "/";
 const loginRoute = "/login";
 const signupRoute = "/signup";
 const mainRoute = "/explore";
@@ -18,14 +19,14 @@ export const App = () => {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/"
+          path={homeRoute}
           element={<Home loginRoute={loginRoute} signupRoute={signupRoute} />}
         />
         <Route
           path={loginRoute}
           element={
             <React.Suspense fallback={<Loading />}>
-              <Login signupRoute={signupRoute} />
+              <Login signupRoute={signupRoute} homeRoute={homeRoute} />
             </React.Suspense>
           }
         />

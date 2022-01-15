@@ -4,7 +4,10 @@ import '../styles/Login.css';
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { ErrorBar } from "./ErrorBar";
 
-export function Login(props: { signupRoute: string }) {
+export function Login(props: {
+  signupRoute: string,
+  homeRoute: string
+}) {
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const [_, setToken] = useLocalStorage('token', '');
@@ -23,8 +26,7 @@ export function Login(props: { signupRoute: string }) {
     }).then(res => res.json())
       .then(res => {
         setToken(res.accessToken);
-        // TODO: uncomment this when navigation in place
-        // navigate('/data');
+        navigate(props.homeRoute);
       })
       .catch(() => {
         console.log("Wrong email or password combination");
