@@ -43,7 +43,7 @@ module.exports = {
       library: { type: "var", name: "container" },
       remotes: {
         auth: "auth",
-        // pins: 'pins',
+        pin: "pin",
       },
       shared: {
         ...deps,

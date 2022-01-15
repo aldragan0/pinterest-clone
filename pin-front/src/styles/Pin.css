@@ -9,7 +9,17 @@
   border-radius: 5%;
 }
 
-img {
+.pin {
+  height: 20vh;
+  width: 20vh;
+  min-width: 300px;
+  min-height: 300px;
+  position: relative;
+  margin: 5px;
+  border-radius: 5%;
+}
+
+.pin img {
   position: absolute;
   left: 0;
   right: 0;
@@ -20,15 +30,5 @@ img {
   object-fit: contain;
   z-index: 1;
   border: 0px solid;
-  border-radius: 5%;
-}
-
-.pin {
-  height: 20vh;
-  width: 20vh;
-  min-width: 300px;
-  min-height: 300px;
-  position: relative;
-  margin: 5px;
   border-radius: 5%;
 }
