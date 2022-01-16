@@ -60,18 +60,20 @@
 
 .main-nav .button-secondary {
   display: block;
-  background-color: rgb(240, 240, 240);
+  padding: 12px;
+
   border-radius: 30px;
+  border: none;
+
+  background-color: rgb(240, 240, 240);
+  color: black;
+
+  cursor: pointer;
+
+  text-align: center;
+  font-weight: bold;
 }
 
 .main-nav .button-secondary:hover {
   background-color: lightgray;
-}
-
-.main-nav .button-secondary {
-  padding: 10px;
-  display: block;
-  color: black;
-  text-align: center;
-  font-weight: bold;
 }
