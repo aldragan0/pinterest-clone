@@ -14,7 +14,7 @@ async function bootstrap() {
     }
   });
 
-  await app.startAllMicroservicesAsync();
+  await app.startAllMicroservices();
   await app.listen(5010);
   Logger.log('User microservice running');
 }
