@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ErrorBar } from "./ErrorBar";
-import '../styles/CreateAccount.css';
+import "../styles/CreateAccount.css";
 
-export function CreateAccount(props: { loginRoute: string }) {
+export default (props: { loginRoute: string }) => {
   let navigation = useNavigate();
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -20,15 +20,16 @@ export function CreateAccount(props: { loginRoute: string }) {
     console.log(email);
 
     fetch(`http://localhost:5010/user/signup`, {
-      headers: { 'Content-Type': 'application/json', },
+      headers: { "Content-Type": "application/json" },
       method: "POST",
-      body: JSON.stringify({ email, password })
-    }).then(res => res.json())
+      body: JSON.stringify({ email, password }),
+    })
+      .then((res) => res.json())
       .then(() => console.log("Account created"))
       .catch(() => {
         console.log("User already exists");
         setError("User already exists");
-      })
+      });
     e.target.email.value = "";
     e.target.password.value = "";
     navigation("/login");
@@ -40,7 +41,12 @@ export function CreateAccount(props: { loginRoute: string }) {
       <form className="form" onSubmit={handleSubmit}>
         <div className="input-group">
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" placeholder="name@email.com" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="name@email.com"
+            required
+          />
         </div>
         <div className="input-group">
           <label htmlFor="password">Password</label>
@@ -48,7 +54,7 @@ export function CreateAccount(props: { loginRoute: string }) {
         </div>
         <button className="primary">Create Account</button>
       </form>
-      {error && <ErrorBar message={error} closeMessage={() => setError('')} />}
+      {error && <ErrorBar message={error} closeMessage={() => setError("")} />}
       <div>
         <Link className="ref" to={props.loginRoute}>
           Go back to login?
@@ -56,4 +62,4 @@ export function CreateAccount(props: { loginRoute: string }) {
       </div>
     </div>
   );
-}
+};
