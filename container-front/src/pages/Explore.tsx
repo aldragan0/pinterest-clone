@@ -3,11 +3,11 @@ import Content from "../components/main/Content";
 import { Footer } from "../components/Footer";
 import Header from "../components/main/Header";
 
-export default () => {
+export default (props: { mainRoute: string }) => {
   return (
     <React.Fragment>
-      <Header />
-      <Content />
+      <Header mainRoute={props.mainRoute} />
+      <Content mainRoute={props.mainRoute} />
       <Footer />
     </React.Fragment>
   );

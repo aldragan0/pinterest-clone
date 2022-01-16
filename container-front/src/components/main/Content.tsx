@@ -1,19 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Loading } from "../Loading";
 
 //@ts-ignore
 const Table = React.lazy(() => import("pin/Table"));
 
-export default (props: { homeRoute: string }) => {
-  // TODO: uncomment this once the authentication in place
-  // const navigate = useNavigate();
+export default (props: { mainRoute: string }) => {
   // const token = localStorage.getItem("token");
-
-  // if (!token) {
-  //   navigate(props.homeRoute);
-  //   return null;
-  // }
   const token = "";
 
   return (
