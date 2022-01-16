@@ -16,12 +16,14 @@ const signupRoute = "/signup";
 const exploreRoute = "/explore";
 
 const Redirect = () => {
-  const token = localStorage.getItem("token");
+  const value = localStorage.getItem("token");
+  const token = value != null ? JSON.parse(value) : value;
+
   console.log(`Redirect, token: ${token}`);
   return !token ? (
-    <Navigate replace to={exploreRoute} />
-  ) : (
     <Navigate replace to={homeRoute} />
+  ) : (
+    <Navigate replace to={exploreRoute} />
   );
 };
 

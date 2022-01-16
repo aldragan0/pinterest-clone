@@ -1,12 +1,18 @@
 import "./Header.css";
 import UserIcon from "../../assets/user-icon.png";
 import { useNavigate } from "react-router-dom";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useEffect } from "react";
 
 export default (props: { mainRoute: string }) => {
+  //TODO: move auth logic into the explore page, only pas props here
   const navigate = useNavigate();
-  const [token, setToken] = useLocalStorage("token", "");
+
+  const value = localStorage.getItem("token");
+  const token = value != null ? JSON.parse(value) : value;
+
+  const setToken = (value: string) => {
+    localStorage.setItem("token", JSON.stringify(value));
+  };
 
   useEffect(() => {
     if (!token) {
