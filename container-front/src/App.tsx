@@ -1,12 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Loading } from "./components/Loading";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
 import LoginPage from "./pages/LoginPage";
-
-//@ts-ignore
-const Signup = React.lazy(() => import("auth/Signup"));
+import SignupPage from "./pages/SignupPage";
 
 const mainRoute = "/";
 const homeRoute = "/home";
@@ -43,11 +40,7 @@ export const App = () => {
         />
         <Route
           path={signupRoute}
-          element={
-            <React.Suspense fallback={<Loading />}>
-              <Signup loginRoute={loginRoute} />
-            </React.Suspense>
-          }
+          element={<SignupPage loginRoute={loginRoute} />}
         />
         <Route
           path={exploreRoute}
