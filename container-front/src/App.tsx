@@ -3,9 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Loading } from "./components/Loading";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
+import LoginPage from "./pages/LoginPage";
 
-//@ts-ignore
-const Login = React.lazy(() => import("auth/Login"));
 //@ts-ignore
 const Signup = React.lazy(() => import("auth/Signup"));
 
@@ -39,9 +38,7 @@ export const App = () => {
         <Route
           path={loginRoute}
           element={
-            <React.Suspense fallback={<Loading />}>
-              <Login signupRoute={signupRoute} mainRoute={mainRoute} />
-            </React.Suspense>
+            <LoginPage signupRoute={signupRoute} mainRoute={mainRoute} />
           }
         />
         <Route
