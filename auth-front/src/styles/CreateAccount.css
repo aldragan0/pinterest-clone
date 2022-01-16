@@ -1,36 +1,19 @@
-
-/*TODO move to CreateAccount page*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-}
-
 /*TODO move to CreateAccount page*/
 html,
 body {
   height: 100%;
 }
 
-.ref {
-    text-decoration: none;
-    color: black
+.Signup .ref {
+  text-decoration: none;
+  color: black;
 }
 
-.ref:hover {
+.Signup .ref:hover {
   text-decoration: underline;
 }
 
-/*TODO move to CreateAccount page*/
-#root {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-}
-
-.App {
+.Signup {
   background: #fff;
   border-radius: 4px;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
@@ -41,34 +24,34 @@ body {
   width: 90%;
 }
 
-.App > .form {
+.Signup > .form {
   margin-bottom: 98px;
   margin-top: 41px;
 }
 
-.input-group {
+.Signup .input-group {
   margin-bottom: 26px;
 }
 
-.input-group:nth-last-child(-n + 2) {
+.Signup .input-group:nth-last-child(-n + 2) {
   margin-bottom: 50px;
 }
 
-.input-group > label,
-.input-group > input {
-  font-family: 'Roboto', sans-serif;
+.Signup .input-group > label,
+.Signup .input-group > input {
+  font-family: "Roboto", sans-serif;
   max-width: 420px;
   text-align: left;
   width: 80%;
 }
 
-.input-group > label {
+.Signup .input-group > label {
   color: #676767;
   display: inline-block;
   margin-bottom: 5px;
 }
 
-.input-group > input {
+.Signup .input-group > input {
   background: #f2f2f5;
   border-radius: 4px;
   border: 1px solid #e5e5e5;
@@ -80,22 +63,22 @@ body {
   transition: all 0.3s;
 }
 
-.input-group > input:focus {
+.Signup .input-group > input:focus {
   background: #fff;
   border-color: #c4c4c4;
 }
 
-.input-group > input::placeholder {
+.Signup .input-group > input::placeholder {
   color: #c4c4c4;
   font-size: 16px;
 }
 
-button {
+.Signup button {
   border-radius: 5px;
   border: none;
   color: #fff;
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -106,18 +89,18 @@ button {
   width: 80%;
 }
 
-button.primary {
+.Signup button.primary {
   background-color: crimson;
 }
 
-button.primary:hover {
+.Signup button.primary:hover {
   background-color: rgb(197, 23, 58);
 }
 
-button.secondary {
+.Signup button.secondary {
   background-color: crimson;
 }
 
-button.secondary:hover {
+.Signup button.secondary:hover {
   background-color: rgb(197, 23, 58);
 }

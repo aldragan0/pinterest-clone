@@ -36,7 +36,7 @@ export default (props: { loginRoute: string }) => {
   };
 
   return (
-    <div className="App">
+    <div className="Signup">
       <h2>Sign up for your account</h2>
       <form className="form" onSubmit={handleSubmit}>
         <div className="input-group">
