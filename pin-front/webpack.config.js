@@ -36,7 +36,7 @@ module.exports = {
       library: { type: "var", name: "pin" },
       filename: "remoteEntry.js",
       exposes: {
-        "./Table": "./src/components/Table",
+        "./Table": "./src/components/TableLoader",
       },
       shared: {
         ...deps,
