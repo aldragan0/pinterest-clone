@@ -42,7 +42,7 @@ export class PinsService {
     key: string,
     params: QueryParams,
   ): Observable<Page> {
-    Logger.log(`Fetching [url: ${url}] with params: ${params}`);
+    Logger.log(`Fetching [url: ${url}] with params: ${JSON.stringify(params)}`);
 
     return this.httpService
       .get(url, {
