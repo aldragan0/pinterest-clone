@@ -1,21 +1,21 @@
-import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn, Unique } from "typeorm";
-import { PageInterface } from "./page.interface";
-import { Pin } from "./pin.entity";
+import { Column, Entity, OneToMany, PrimaryColumn, Unique } from 'typeorm';
+import { PageInterface } from './page.interface';
+import { Pin } from './pin.entity';
 
 @Entity()
-@Unique(['page'])
+@Unique(['key'])
 export class Page implements PageInterface {
-    @PrimaryColumn()
-    page: number;
+  @PrimaryColumn()
+  key: string;
 
-    per_page: number;
+  per_page: number;
 
-    @OneToMany(() => Pin, pin => pin.page, {
-        cascade: true,
-        eager: true
-    })
-    photos: Pin[];
+  @OneToMany(() => Pin, (pin) => pin.page, {
+    cascade: true,
+    eager: true,
+  })
+  photos: Pin[];
 
-    @Column()
-    next_page: string;
+  @Column()
+  next_page: string;
 }
