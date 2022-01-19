@@ -4,7 +4,7 @@ import { Loading } from "../Loading";
 //@ts-ignore
 const Table = React.lazy(() => import("pin/Table"));
 
-export default (props: { mainRoute: string }) => {
+export default (props: { mainRoute: string; searchString: string }) => {
   // const token = localStorage.getItem("token");
   const token = "";
 
@@ -13,7 +13,7 @@ export default (props: { mainRoute: string }) => {
       <div style={{ minHeight: "100px" }} />
       <div style={{ flex: 1 }}>
         <React.Suspense fallback={<Loading />}>
-          <Table token={token} />
+          <Table token={token} searchQuery={props.searchString} />
         </React.Suspense>
       </div>
     </React.Fragment>
