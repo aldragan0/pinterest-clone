@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 import { LocalStrategy } from '../guards/local.strategy';
 import { AuthController } from './auth.controller';
 import constants from './constants';
+import { USER_SERVICE } from 'src/config';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import constants from './constants';
         name: 'USER_CLIENT',
         transport: Transport.TCP,
         options: {
-          host: 'localhost',
+          host: USER_SERVICE,
           port: 4010,
         },
       },

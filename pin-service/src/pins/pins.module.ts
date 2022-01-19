@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Page } from './entities/page.entity';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { AUTH_SERVICE } from 'src/config';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         name: 'AUTH_CLIENT',
         transport: Transport.TCP,
         options: {
-          host: 'localhost',
+          host: AUTH_SERVICE,
           port: 4000,
         },
       },

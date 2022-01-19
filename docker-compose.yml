@@ -1,0 +1,128 @@
+version: '3.8'
+
+services:
+  users:
+    container_name: user-service
+    build: ./user-service
+      # target: development
+    environment:
+      DB: PinClone
+      DB_HOST: db-service
+      DB_PORT: 3306
+      DB_USER: user
+      DB_PASSWORD: password
+      USER_SERVICE: user-service
+    ports:
+      - 5010:5010
+      - 4010:4010
+    expose:
+      - '4010'
+    volumes:
+      - ./user-service:/usr/src/users
+      - /usr/src/users/node_modules
+    restart: unless-stopped
+    depends_on:
+      - database
+
+  auth:
+    container_name: auth-service
+    build: ./auth-service
+      # target: development
+    environment:
+      USER_SERVICE: user-service
+      AUTH_SERVICE: auth-service
+    ports:
+      - 5000:5000
+      - 4000:4000
+    expose:
+      - '4000'
+    volumes:
+      - ./auth-service:/usr/src/auth
+      - /usr/src/auth/node_modules
+    restart: unless-stopped
+    depends_on:
+      - users
+
+  pin:
+    container_name: pin-service
+    build: ./pin-service
+      # target: development
+    environment:
+      AUTH_SERVICE: auth-service
+      DB: PinClone
+      DB_HOST: db-service
+      DB_PORT: 3306
+      DB_USER: user
+      DB_PASSWORD: password
+    ports:
+      - 5020:5020
+      - 4020:4020
+    expose:
+      - '4020'
+    volumes:
+      - ./pin-service:/usr/src/pin
+      - /usr/src/pin/node_modules
+    restart: unless-stopped
+    depends_on:
+      - auth
+      - database
+
+  container-front:
+    container_name: container-front
+    build: ./container-front
+    volumes:
+      - ./container-front:/container
+      - /container/node_modules
+    ports:
+      - 3000:3000
+    expose:
+      - '3000'
+    depends_on:
+      - auth-front
+      - pin-front
+
+  auth-front:
+    container_name: auth-front
+    build: ./auth-front
+    volumes:
+      - ./auth-front:/auth
+      - /auth/node_modules
+    ports:
+      - 3001:3001
+    expose:
+      - '3001'
+    depends_on:
+      - auth
+
+  pin-front:
+    container_name: pin-front
+    build: ./pin-front
+    volumes:
+      - ./pin-front:/pin
+      - /pin/node_modules
+    ports:
+      - 3002:3002
+    expose:
+      - '3002'
+    depends_on:
+      - pin
+
+  database:
+    container_name: db-service
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'PinClone'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - 3306:3306
+    expose:
+      - '3306'
+    volumes:
+      - data:/var/lib/mysql
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+
+volumes:
+  data:
