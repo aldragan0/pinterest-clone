@@ -1,5 +1,18 @@
 # Pinterest Clone
 
+## Getting started
+Install [Node package manager (NPM)](https://nodejs.org/en/) (if you haven't already).
+
+## Requirements
+
+To use this project you have to have a [Pexels developer account](https://www.pexels.com/api/).
+To run the application using docker, all you need to do is to set the PEXELS_API_KEY env variable
+in the PIN_SERVICE and then run the following command in the root folder:
+
+```bash
+sudo docker-compose up -d
+```
+
 ## Architecture
 
 Application architecture
