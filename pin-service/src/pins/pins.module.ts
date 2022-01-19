@@ -5,11 +5,25 @@ import { HttpModule } from '@nestjs/axios';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Page } from './entities/page.entity';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
-  imports: [HttpModule, ConfigModule,
-    TypeOrmModule.forFeature([Page])],
+  imports: [
+    ClientsModule.register([
+      {
+        name: 'AUTH_CLIENT',
+        transport: Transport.TCP,
+        options: {
+          host: 'localhost',
+          port: 4000,
+        },
+      },
+    ]),
+    HttpModule,
+    ConfigModule,
+    TypeOrmModule.forFeature([Page]),
+  ],
   controllers: [PinsController],
-  providers: [PinsService]
+  providers: [PinsService],
 })
-export class PinsModule { }
+export class PinsModule {}

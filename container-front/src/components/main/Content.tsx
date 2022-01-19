@@ -5,8 +5,13 @@ import { Loading } from "../Loading";
 const Table = React.lazy(() => import("pin/Table"));
 
 export default (props: { mainRoute: string; searchString: string }) => {
-  // const token = localStorage.getItem("token");
-  const token = "";
+  //TODO: move auth logic into the explore page, only pas props here
+  const value = localStorage.getItem("token");
+  const token = value ? JSON.parse(value) : value;
+
+  if (!token) {
+    return null;
+  }
 
   return (
     <React.Fragment>
