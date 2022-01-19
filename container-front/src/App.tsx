@@ -13,7 +13,7 @@ const exploreRoute = "/explore";
 
 const Redirect = () => {
   const value = localStorage.getItem("token");
-  const token = value != null ? JSON.parse(value) : value;
+  const token = value ? JSON.parse(value) : value;
 
   console.log(`Redirect, token: ${token}`);
   return !token ? (

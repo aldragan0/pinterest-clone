@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { ErrorBar } from "./ErrorBar";
+import { UnauthorizedError } from "../exceptions";
 
 export default (props: { signupRoute: string; mainRoute: string }) => {
   const navigate = useNavigate();
@@ -23,6 +24,11 @@ export default (props: { signupRoute: string; mainRoute: string }) => {
     })
       .then((res) => res.json())
       .then((res) => {
+        // TODO: improve the error handling logic
+        console.log(res);
+        if (res?.statusCode === 401) {
+          throw new UnauthorizedError(res.message);
+        }
         setToken(res.accessToken);
         navigate(props.mainRoute);
       })
